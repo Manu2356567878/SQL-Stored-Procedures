@@ -7,9 +7,9 @@ A SQL Server stored procedure that reports on customers, scores, orders, and sal
 
 ## What it does
 
-1. Step 1 — Ad-hoc query**: Counts US customers and averages their Score.
-2. Step 2 — Wrap in a procedure**: Turns that query into GetCustomerSummary.
-3. Step 3 — Execute**: Runs the procedure with EXEC GetCustomerSummary.
+1. **Step 1 — Ad-hoc query**: Counts US customers and averages their Score.
+2. **Step 2 — Wrap in a procedure**: Turns that query into GetCustomerSummary.
+3. **Step 3 — Execute**: Runs the procedure with EXEC GetCustomerSummary.
 4. Parameterize & extend**: ALTER PROCEDURE adds a @Country parameter (default 'USA') and expands the logic into three parts:
    - **Data cleaning**: sets any NULL Score values to 0 for the selected country, with a PRINT message either way.
    - **Customer report**: computes TotalCustomers and AvgScore for the selected country and prints them.
