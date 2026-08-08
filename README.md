@@ -29,22 +29,10 @@ EXEC GetCustomerSummary;
 -- Specific country
 EXEC GetCustomerSummary @Country = 'Germany';
 
-## Known issue — script won't run as-is
-
-The CATCH block has an incomplete line:
-
-PRINT('Error Proedure ' + ERROR
-END CATCH
-
-This is missing the function call and closing parenthesis, so it will throw a syntax error. Fix it to something like:
-
-PRINT('Error Procedure: ' + ISNULL(ERROR_PROCEDURE(), 'N/A'));
-
-(ERROR_PROCEDURE() returns NULL if the error didn't occur inside a stored procedure, so wrapping it in ISNULL avoids a NULL concatenation issue when casting/printing.)
 
 ## Notes / suggestions
 
 - PRINT output is only visible in tools like SSMS's Messages tab — it won't be returned as query results to an application. Consider RAISERROR/THROW or an output parameter if the caller needs to detect success/failure programmatically.
 - The final two EXEC statements at the bottom (Germany and default) are example calls, not part of the procedure definition — run them after the GO batch separator.
-- Since @AvgScore is FLOAT, casting directly to NVARCHAR may produce scientific notation for some values; consider CAST(@AvgScore AS NVARCHAR(20)) or ROUND() first if you want cleaner output.
+
 
