@@ -1,5 +1,5 @@
 --Step 1: Write a Query 
---For US ustomer Find the Total Number Of customer and the average score
+--For US Customer Find the Total Number Of customer and the average score
 
 SELECT 
     COUNT(*) TotalCustomers,
